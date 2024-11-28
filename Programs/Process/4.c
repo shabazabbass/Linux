@@ -1,17 +1,38 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<unistd.h>
 #include<sys/types.h>
-#include<sys/wait.h>
+#include<errno.h>
 int main(){
-	if(fork() == 0){
-		printf("chid pid : %d main parent pid : %d\n",getpid(),getppid());
-		if(fork() == 0){
-			printf("childs child pid : %d his parent pid : %d\n",getpid(),getppid());
+	pid_t pid;
+	printf("Parent process id : %d \n",getpid());
+	pid = fork();
+	if(pid == 0){
+		perror("Child creation ");
+		printf("child id : %d parent id : %d \n",getpid(),getppid());
+		pid = fork();
+		if(pid == 0){
+			perror("Grand Child creation ");
+			printf("Grand child id : %d parent id : %d \n",getpid(),getppid());
+			return EXIT_SUCCESS;
+		}
+		else if(pid > 0){
+			sleep(2);
+			return EXIT_SUCCESS;
+		}
+		else{
+			perror("Grand Child creation ");
+			return errno;
 		}
 	}
-	else{
-		printf("main parent pid : %d his parent pid  : %d ",getpid(),getppid());
-		
+	else if(pid > 0){
+		sleep(2);
+		return EXIT_SUCCESS;
 	}
-	while(1);
+	else{
+		perror("Child creation ");
+		return errno;
+	}
+	
 }
+

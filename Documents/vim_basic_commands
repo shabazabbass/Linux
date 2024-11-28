@@ -1,0 +1,77 @@
+There are three modes in the vim
+
+1. Normal mode
+	1. Escape button is used for going back to the normal mode
+	2. :<vim command> 		eg : set number, set relativenumber, set shiftspace, set number!
+	3. :!<normal bash commands> 	eg : ls,pwd
+2. Insert mode
+	1. You have to be in normal mode to shift to the insert mode 
+	2. insert before the cursor		-- i 
+	3. insert after the cursor  		-- a
+	4. insert below line after the cursor	-- o  
+3. Visual mode
+	1. visual normal mode	-- v
+	2. visual line mode	-- shift + v
+	3. visual block mode	-- 
+
+some short cuts you need to know
+
+d  	----> delete the content before the word 
+D  	----> delete the content after the word
+dd 	----> delete the whole line
+3dd	----> delete three lines
+c	----> same as delete but instead of going back to normal mode it goes back to insert mode
+y	----> copy
+h	----> cursor left
+j	----> cursor down
+k	----> cursor up
+l	----> cursor right
+r	----> replace
+w	----> jump to next word
+b	----> jump to previous word
+dw	----> delete a word
+2dw	----> delete two words
+diw	----> special case delete in a word sometimes cursor will be in middle of the word so it will delete the whole word
+ciw	----> change in a word
+e	----> jumps to the end of the word
+I	----> move cursor to begining of the line
+0	----> move the cursor to the begining of the line
+$	----> move the cursor to the end of the line
+d0	----> everything from the cursor to the begining will be deleted
+yiw	----> yank in a word
+ci"	----> change the content inside the quatation mark
+%	----> place it on parenthesis and check the open and close parenthisis
+d%	----> deletes everything including the brackets
+t* 	----> before the ocurrance of the * symbols
+f*	----> it moves forward to that position
+T*	----> it moves backward to that position
+gg	----> it moves the cursor to begining of the file
+shift+g	----> it moves the cursor to the end of the file
+123G	----> it moves the cursor to the line number 123
+> 	----> indent to the left
+<	----> indet to the right
+==      ----> it will auto indent
+gg=G 	----> auto indent the the whole file
+#	----> cursor should point to the begining take to the previous word
+*	----> cursor should point to the begining take to the next word
+m	----> mark wave point go to a word and type ma 'a to come back
+zz	----> to make the current line to center of the page
+.	----> repeats the previous command
+dt"     ----> delete untill quatation
+"7p 	----> there is something called as register concept it will just paste it.
+qa	----> start recording the macro agin press q to stop the macro @a will execute the command
+
+
+:/<word to find> ----  n to find the next word N to go back to the previous word
+
+:%s/<character you want to replace>/<character to be replaced >/g
+you can use the above command using visula mode also
+
+:reg shows the content in the register
+
+in vim we have something called as macro it is similar to registers which helps us to store some set of commands
+
+ 
+sudo install neovim
+
+install plug in 
